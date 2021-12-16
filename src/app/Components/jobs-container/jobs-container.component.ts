@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { JobService } from 'src/app/Services/job.service';
+import { interval, firstValueFrom } from 'rxjs';
+import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-jobs-container',
@@ -8,6 +10,9 @@ import { JobService } from 'src/app/Services/job.service';
 })
 export class JobsContainerComponent implements OnInit {
 
+
+jobList : Array<any> = [];
+
   constructor(protected jobService : JobService ) { }
 
   ngOnInit(): void {
@@ -15,9 +20,17 @@ export class JobsContainerComponent implements OnInit {
   }
 
   async getAllJobs(){
-    let jobs = this.jobService.getAllJobs().subscribe(a => {
+    this.jobList = await firstValueFrom(this.jobService.getAllJobs().pipe(map(x => x.Jobs)))
+debugger;
+  }
 
-    })
+  test(job : any)
+  {
+    debugger;
+  }
+  test1()
+  {
+    debugger;
   }
 
 }

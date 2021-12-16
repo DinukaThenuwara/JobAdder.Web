@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -9,6 +9,8 @@ import { DashboardComponent } from './Components/dashboard/dashboard.component';
 import { JobsContainerComponent } from './Components/jobs-container/jobs-container.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { MatListModule } from '@angular/material/list';
+import {MatFormFieldModule} from '@angular/material/form-field';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,9 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    HttpClientModule
+    HttpClientModule,
+    MatListModule,
+    MatFormFieldModule
   ],
   providers: [],
   bootstrap: [AppComponent]

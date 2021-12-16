@@ -1,3 +1,9 @@
 
+<mat-list>
+    <mat-list-item (click)="test1()" *ngFor="let job of jobList">   
+        <mat-list-item (click)="test(job)">
+            <app-job [data]="job"></app-job>
+        </mat-list-item>     
+     </mat-list-item>
+</mat-list>
 
-<app-job></app-job>
