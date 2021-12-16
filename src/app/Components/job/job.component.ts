@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { JobService } from 'src/app/Services/job.service';
 
 @Component({
   selector: 'app-job',
@@ -7,9 +8,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class JobComponent implements OnInit {
 
-  constructor() { }
+  constructor(protected jobService : JobService ) { }
 
   ngOnInit(): void {
+    
   }
 
 }
