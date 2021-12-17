@@ -13,11 +13,5 @@ export class JobComponent implements OnInit {
   constructor(protected jobService : JobService ) { }
 
   ngOnInit(): void {
-    debugger;
   }
-
-  Test(){
-    debugger;
-  }
-
 }
