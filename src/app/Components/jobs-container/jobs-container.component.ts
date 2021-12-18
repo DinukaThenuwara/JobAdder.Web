@@ -14,6 +14,7 @@ export class JobsContainerComponent implements OnInit {
   candidates: Array<any> = [];
   filterText : string = ''
   fillterdJobs: Array<any> = [];
+  isLoading = false;
 
   constructor(
     private jobService: JobService,
@@ -33,6 +34,7 @@ export class JobsContainerComponent implements OnInit {
   }
 
   async onJobSelect(job: any) {
+    this.isLoading = true;
     this.candidates = await firstValueFrom(
       this.candidateService
         .getMostSuitableCandidate({
@@ -42,6 +44,7 @@ export class JobsContainerComponent implements OnInit {
         })
         .pipe(map((x) => x.Candidates))
     );
+    this.isLoading = false;
   }
 
   filterValueChange(searchValue: string){

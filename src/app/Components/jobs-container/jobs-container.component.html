@@ -27,6 +27,9 @@
           <app-candidate [data]="candidate"></app-candidate>
         </mat-list-item>
       </mat-list-item>
+
+      
+      <mat-spinner class="spinner" *ngIf="isLoading"></mat-spinner>
     </div>
   </div>
   
