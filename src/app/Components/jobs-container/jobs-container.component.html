@@ -1,10 +1,16 @@
 
 <div class="d-flex flex-row dashboard">
     <div class="p-2 flex-grow-0 overflow-auto">
-        <mat-card class="job-container-card">
-            <mat-card-title> Jobs </mat-card-title>
-        </mat-card>
-      <mat-list-item *ngFor="let job of jobList" class="list-item">
+      <mat-card class="job-container-card">
+          <mat-card-title> Jobs </mat-card-title>
+      </mat-card>
+
+      <mat-form-field class="form-field">
+        <mat-label>Filter Jobs by Name <mat-icon aria-hidden="false" aria-label="search icon">search</mat-icon></mat-label>
+        <input matInput #box  (input)="filterValueChange(box.value)">
+      </mat-form-field>
+
+      <mat-list-item *ngFor="let job of fillterdJobs" class="list-item">
         <div>
           <app-job [data]="job" (onClick)="onJobSelect(job)"></app-job>
         </div>
@@ -13,6 +19,9 @@
     </div>
   
     <div class="p-2 flex-grow-1 w-100">
+        <mat-card class="candidate-container-card">
+            <mat-card-title> Best Match </mat-card-title>
+        </mat-card>
       <mat-list-item *ngFor="let candidate of candidates" class="list-item">
         <mat-list-item>
           <app-candidate [data]="candidate"></app-candidate>

@@ -12,6 +12,8 @@ import { CandidateService } from 'src/app/Services/candidate.service';
 export class JobsContainerComponent implements OnInit {
   jobList: Array<any> = [];
   candidates: Array<any> = [];
+  filterText : string = ''
+  fillterdJobs: Array<any> = [];
 
   constructor(
     private jobService: JobService,
@@ -26,6 +28,7 @@ export class JobsContainerComponent implements OnInit {
     this.jobList = await firstValueFrom(
       this.jobService.getAllJobs().pipe(map((x) => x.Jobs))
     );
+    this.fillterdJobs = this.jobList
     if (this.jobList?.length > 0) this.onJobSelect(this.jobList[0]);
   }
 
@@ -39,5 +42,9 @@ export class JobsContainerComponent implements OnInit {
         })
         .pipe(map((x) => x.Candidates))
     );
+  }
+
+  filterValueChange(searchValue: string){
+    this.fillterdJobs = this.jobList.filter(a => a.Name.toUpperCase().includes(searchValue.toUpperCase()));
   }
 }
