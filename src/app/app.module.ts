@@ -11,6 +11,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { MatListModule } from '@angular/material/list';
 import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatCardModule} from '@angular/material/card';
+import { MaterialModule } from './material.module';
 
 @NgModule({
   declarations: [
@@ -25,8 +27,7 @@ import {MatFormFieldModule} from '@angular/material/form-field';
     AppRoutingModule,
     BrowserAnimationsModule,
     HttpClientModule,
-    MatListModule,
-    MatFormFieldModule
+    MaterialModule
   ],
   providers: [],
   bootstrap: [AppComponent]
