@@ -1,15 +1,31 @@
-<div class="row">
-    <div class="col-md-12">
-        <button type="button" class="btn btn-primary">Primary</button>
-    </div>    
-</div>
-
-<div class="row"> 
-    <div class="col-md-6">
-        <app-jobs-container></app-jobs-container>
-    </div>   
-</div>
-
-
-
-
+<mat-toolbar color="primary">
+    <button
+      mat-icon-button
+      class="example-icon"
+      aria-label="Example icon-button with menu icon"
+    >
+      <mat-icon>menu</mat-icon>
+    </button>
+    <span>Jobs Adder</span>
+    <span class="example-spacer"></span>
+    <button
+      mat-icon-button
+      class="example-icon favorite-icon"
+      aria-label="Example icon-button with heart icon"
+    >
+      <mat-icon>favorite</mat-icon>
+    </button>
+    <button
+      mat-icon-button
+      class="example-icon"
+      aria-label="Example icon-button with share icon"
+    >
+      <mat-icon>share</mat-icon>
+    </button>
+  </mat-toolbar>
+  
+  <div class="d-flex flex-column">
+    <div class="p-2"></div>
+    <div class="p-2"><app-jobs-container></app-jobs-container></div>
+  </div>
+  

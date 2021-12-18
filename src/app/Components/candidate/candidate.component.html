@@ -1,14 +1,24 @@
-<ng-container>
-    <div>
-        <mat-label>Candidate Id : {{data.CandidateId}}</mat-label>
-    </div>
-    <div>
-        <mat-label>Name : {{data.Name}}</mat-label> 
-    </div>
-    <div>
-        <mat-label>Skill Tags : {{data.Skills}}</mat-label>
-    </div>
-    <div>
-    </div>        
-    
-</ng-container>
+<div>
+    <mat-card class="example-card">
+      <mat-card-title>
+        <mat-icon aria-hidden="false" aria-label="Example home icon"
+          >home</mat-icon
+        >
+        {{ data.Name }}</mat-card-title
+      >
+      <mat-card-subtitle color="primary">{{
+        data.CandidateId
+      }}</mat-card-subtitle>
+      <mat-card-content>
+        <p>
+          <mat-chip-list>
+            <mat-chip *ngFor="let tag of data.Skills">{{ tag }}</mat-chip>
+          </mat-chip-list>
+        </p>
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-button>More...</button>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+  

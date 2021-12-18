@@ -7,28 +7,37 @@ import { CandidateService } from 'src/app/Services/candidate.service';
 @Component({
   selector: 'app-jobs-container',
   templateUrl: './jobs-container.component.html',
-  styleUrls: ['./jobs-container.component.sass']
+  styleUrls: ['./jobs-container.component.sass'],
 })
 export class JobsContainerComponent implements OnInit {
+  jobList: Array<any> = [];
+  candidates: Array<any> = [];
 
-
-jobList : Array<any> = [];
-candidates : Array<any> = [];
-
-  constructor(private jobService : JobService, private candidateService : CandidateService ) { }
+  constructor(
+    private jobService: JobService,
+    private candidateService: CandidateService
+  ) {}
 
   ngOnInit(): void {
-    this.getAllJobs()
+    this.getAllJobs();
   }
 
-  async getAllJobs(){
-    this.jobList = await firstValueFrom(this.jobService.getAllJobs().pipe(map(x => x.Jobs)))
+  async getAllJobs() {
+    this.jobList = await firstValueFrom(
+      this.jobService.getAllJobs().pipe(map((x) => x.Jobs))
+    );
+    if (this.jobList?.length > 0) this.onJobSelect(this.jobList[0]);
   }
 
-  async onJobSelect(job : any)
-  {
-    this.candidates = await firstValueFrom(this.candidateService.getMostSuitableCandidate({JobId : job.JobId ,SkillTags : job.SkillTags, WeightedSkills : job.WeightedSkills}).pipe(map(x => x.Candidates)))
-
+  async onJobSelect(job: any) {
+    this.candidates = await firstValueFrom(
+      this.candidateService
+        .getMostSuitableCandidate({
+          JobId: job.JobId,
+          SkillTags: job.SkillTags,
+          WeightedSkills: job.WeightedSkills,
+        })
+        .pipe(map((x) => x.Candidates))
+    );
   }
-  
 }
