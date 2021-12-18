@@ -1,15 +1,15 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpResponse } from '@angular/common/http'
+import { HttpClient, HttpResponse } from '@angular/common/http';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class JobService {
+  constructor(protected http: HttpClient) {}
 
-  constructor(protected http: HttpClient) { }
+  getAllJobs() {
 
-  getAllJobs(){
-        const url = 'https://localhost:44324/api/job/getall';
-        return this.http.get<any>(url);
+    const url = '/api/job/getall';
+    return this.http.get<any>(url);
   }
 }
